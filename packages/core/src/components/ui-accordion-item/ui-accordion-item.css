@@ -1,0 +1,42 @@
+:host {
+  display: block;
+  font-family: var(--ui-font-sans);
+  border-bottom: 1px solid var(--ui-border);
+}
+
+summary {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 1rem;
+  padding: 1rem 0;
+  cursor: pointer;
+  font-weight: 500;
+  color: var(--ui-foreground);
+  list-style: none;
+  outline: none;
+}
+
+summary::-webkit-details-marker {
+  display: none;
+}
+
+summary:focus-visible {
+  box-shadow: 0 0 0 2px var(--ui-background), 0 0 0 4px var(--ui-ring);
+  border-radius: var(--ui-radius-sm);
+}
+
+.chevron {
+  flex: none;
+  color: var(--ui-text-muted);
+  transition: transform var(--ui-duration) var(--ui-ease);
+}
+
+details[open] .chevron {
+  transform: rotate(180deg);
+}
+
+.content {
+  padding-bottom: 1rem;
+  color: var(--ui-text-muted);
+}

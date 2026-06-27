@@ -1,0 +1,36 @@
+:host {
+  display: block;
+}
+
+.item {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  width: 100%;
+  padding: 0.5rem 0.625rem;
+  font-family: var(--ui-font-sans);
+  font-size: 0.875rem;
+  text-align: left;
+  color: var(--ui-foreground);
+  background: transparent;
+  border: none;
+  border-radius: var(--ui-radius-sm);
+  cursor: pointer;
+  outline: none;
+  transition: background var(--ui-duration) var(--ui-ease);
+}
+
+.item:hover,
+.item:focus-visible {
+  background: var(--ui-chip);
+}
+
+.item:focus-visible {
+  box-shadow: 0 0 0 2px var(--ui-ring);
+}
+
+.item:disabled {
+  pointer-events: none;
+  opacity: 0.5;
+  cursor: default;
+}

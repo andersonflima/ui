@@ -1,0 +1,67 @@
+:host {
+  display: block;
+}
+
+.group {
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+}
+
+.radio {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.625rem;
+  padding: 0;
+  border: none;
+  background: transparent;
+  color: var(--ui-foreground);
+  font-family: var(--ui-font-sans);
+  font-size: 0.875rem;
+  cursor: pointer;
+  outline: none;
+}
+
+.radio:disabled {
+  opacity: 0.5;
+  pointer-events: none;
+}
+
+.indicator {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 1.25rem;
+  height: 1.25rem;
+  border: 1px solid var(--ui-border-strong);
+  border-radius: var(--ui-radius-full);
+  background: var(--ui-panel);
+  transition: all var(--ui-duration) var(--ui-ease);
+}
+
+.radio:focus-visible .indicator {
+  box-shadow: 0 0 0 2px var(--ui-background), 0 0 0 4px var(--ui-ring);
+}
+
+.radio[aria-checked="true"] .indicator {
+  border-color: var(--ui-accent);
+}
+
+.dot {
+  width: 0.625rem;
+  height: 0.625rem;
+  border-radius: var(--ui-radius-full);
+  background: var(--ui-accent);
+  opacity: 0;
+  transform: scale(0.4);
+  transition: all var(--ui-duration) var(--ui-ease);
+}
+
+.radio[aria-checked="true"] .dot {
+  opacity: 1;
+  transform: scale(1);
+}
+
+.label {
+  line-height: 1.25rem;
+}

@@ -38,6 +38,7 @@
     "test": "stencil test --spec"
   },
   "dependencies": {
+    "@floating-ui/dom": "^1.6.13",
     "@stencil/core": "^4.22.0"
   },
   "devDependencies": {
