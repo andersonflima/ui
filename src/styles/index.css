@@ -1,0 +1,61 @@
+@import "tailwindcss";
+@import "./theme.css";
+
+/* Garante que o Tailwind escaneie todos os componentes da lib. */
+@source "../components";
+@source "../providers";
+
+@custom-variant dark (&:is(.dark *));
+
+@layer base {
+  :root {
+    color-scheme: light;
+  }
+
+  .dark {
+    color-scheme: dark;
+  }
+}
+
+@layer utilities {
+  .ui-glass {
+    border: 1px solid var(--ui-border);
+    background: var(--ui-panel);
+    box-shadow: var(--ui-shadow-lg);
+    backdrop-filter: blur(22px) saturate(140%);
+  }
+
+  .ui-surface {
+    color: var(--ui-foreground);
+    background: var(--ui-page-gradient);
+  }
+
+  .ui-text-balance {
+    text-wrap: balance;
+  }
+}
+
+@keyframes ui-spin {
+  to {
+    transform: rotate(360deg);
+  }
+}
+
+@keyframes ui-shimmer {
+  0% {
+    background-position: -200% 0;
+  }
+  100% {
+    background-position: 200% 0;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+  }
+}
