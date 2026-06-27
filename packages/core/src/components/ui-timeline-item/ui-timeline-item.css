@@ -1,0 +1,83 @@
+:host {
+  display: block;
+}
+
+.item {
+  position: relative;
+  display: flex;
+  gap: 0.75rem;
+  padding-bottom: 1.5rem;
+  font-family: var(--ui-font-sans);
+}
+
+.marker {
+  position: relative;
+  flex: 0 0 1.5rem;
+  display: flex;
+  justify-content: center;
+}
+
+.dot {
+  position: relative;
+  z-index: 1;
+  width: 0.75rem;
+  height: 0.75rem;
+  margin-top: 0.125rem;
+  border-radius: var(--ui-radius-full);
+  background: var(--dot-color, var(--ui-accent));
+  box-shadow: 0 0 0 2px var(--ui-background);
+}
+
+.line {
+  position: absolute;
+  top: 0.5rem;
+  bottom: -1.5rem;
+  left: 50%;
+  width: 2px;
+  transform: translateX(-50%);
+  background: var(--ui-border);
+}
+
+:host(:last-child) .line {
+  display: none;
+}
+
+.content {
+  display: flex;
+  flex-direction: column;
+  gap: 0.25rem;
+  min-width: 0;
+}
+
+.time {
+  font-size: 0.7rem;
+  text-transform: uppercase;
+  letter-spacing: 0.08em;
+  color: var(--ui-text-faint);
+}
+
+.heading {
+  font-weight: 600;
+  color: var(--ui-foreground);
+}
+
+.body {
+  font-size: 0.875rem;
+  color: var(--ui-text-soft);
+}
+
+.variant-accent {
+  --dot-color: var(--ui-accent);
+}
+.variant-success {
+  --dot-color: var(--ui-success);
+}
+.variant-warning {
+  --dot-color: var(--ui-warning);
+}
+.variant-danger {
+  --dot-color: var(--ui-danger);
+}
+.variant-muted {
+  --dot-color: var(--ui-text-faint);
+}

@@ -97,3 +97,65 @@
     radial-gradient(circle at 78% 10%, rgba(91, 140, 255, 0.14), transparent 34rem),
     linear-gradient(180deg, var(--ui-background), #070911 58%, #03050b);
 }
+
+/**
+ * Presets de tema (accent). Aplique a classe junto de (ou sem) `.dark` no elemento raiz.
+ * Ex.: <html class="dark theme-violet">. Sobrescrevem apenas a cor de marca.
+ */
+.theme-violet {
+  --ui-accent: #8b5cf6;
+  --ui-accent-strong: #6366f1;
+  --ui-ring: rgba(139, 92, 246, 0.34);
+}
+.dark.theme-violet {
+  --ui-accent: #a78bfa;
+  --ui-accent-strong: #818cf8;
+  --ui-ring: rgba(167, 139, 250, 0.28);
+}
+
+.theme-emerald {
+  --ui-accent: #10b981;
+  --ui-accent-strong: #14b8a6;
+  --ui-ring: rgba(16, 185, 129, 0.32);
+}
+.dark.theme-emerald {
+  --ui-accent: #34d399;
+  --ui-accent-strong: #2dd4bf;
+  --ui-ring: rgba(52, 211, 153, 0.26);
+}
+
+.theme-amber {
+  --ui-accent: #f59e0b;
+  --ui-accent-strong: #f97316;
+  --ui-accent-contrast: #1c1207;
+  --ui-ring: rgba(245, 158, 11, 0.32);
+}
+.dark.theme-amber {
+  --ui-accent: #fbbf24;
+  --ui-accent-strong: #fb923c;
+  --ui-ring: rgba(251, 191, 36, 0.26);
+}
+
+.theme-rose {
+  --ui-accent: #f43f5e;
+  --ui-accent-strong: #ec4899;
+  --ui-accent-contrast: #fff;
+  --ui-ring: rgba(244, 63, 94, 0.32);
+}
+.dark.theme-rose {
+  --ui-accent: #fb7185;
+  --ui-accent-strong: #f472b6;
+  --ui-ring: rgba(251, 113, 133, 0.26);
+}
+
+.theme-blue {
+  --ui-accent: #3b82f6;
+  --ui-accent-strong: #6366f1;
+  --ui-accent-contrast: #fff;
+  --ui-ring: rgba(59, 130, 246, 0.32);
+}
+.dark.theme-blue {
+  --ui-accent: #60a5fa;
+  --ui-accent-strong: #818cf8;
+  --ui-ring: rgba(96, 165, 250, 0.26);
+}
