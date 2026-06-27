@@ -17,8 +17,26 @@ const ThemeContext = React.createContext<ThemeContextValue | null>(null);
 const isBrowser = typeof window !== "undefined";
 
 function systemTheme(): Theme {
-  if (!isBrowser) return "dark";
+  if (!isBrowser || typeof window.matchMedia !== "function") return "dark";
   return window.matchMedia("(prefers-color-scheme: dark)").matches ? "dark" : "light";
+}
+
+function readStoredTheme(key: string): ThemePreference | null {
+  if (!isBrowser) return null;
+  try {
+    return (window.localStorage?.getItem(key) as ThemePreference | null) ?? null;
+  } catch {
+    return null;
+  }
+}
+
+function writeStoredTheme(key: string, value: ThemePreference): void {
+  if (!isBrowser) return;
+  try {
+    window.localStorage?.setItem(key, value);
+  } catch {
+    /* storage indisponível (modo privado, sandbox) — ignora silenciosamente */
+  }
 }
 
 function resolve(theme: ThemePreference): Theme {
@@ -41,10 +59,9 @@ export function ThemeProvider({
   storageKey = "ui-theme",
   darkClass = "dark",
 }: ThemeProviderProps) {
-  const [theme, setThemeState] = React.useState<ThemePreference>(() => {
-    if (!isBrowser) return defaultTheme;
-    return (window.localStorage.getItem(storageKey) as ThemePreference | null) ?? defaultTheme;
-  });
+  const [theme, setThemeState] = React.useState<ThemePreference>(
+    () => readStoredTheme(storageKey) ?? defaultTheme,
+  );
 
   const [resolvedTheme, setResolvedTheme] = React.useState<Theme>(() => resolve(theme));
 
@@ -75,7 +92,7 @@ export function ThemeProvider({
 
   const setTheme = React.useCallback(
     (next: ThemePreference) => {
-      if (isBrowser) window.localStorage.setItem(storageKey, next);
+      writeStoredTheme(storageKey, next);
       setThemeState(next);
     },
     [storageKey],
