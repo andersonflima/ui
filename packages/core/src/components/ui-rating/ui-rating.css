@@ -1,0 +1,52 @@
+:host {
+  display: inline-flex;
+}
+
+.rating {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.125rem;
+}
+
+.star {
+  width: 1.5rem;
+  height: 1.5rem;
+  padding: 0;
+  border: none;
+  background: none;
+  cursor: pointer;
+  color: var(--ui-border-strong);
+  transition: color var(--ui-duration) var(--ui-ease),
+    transform var(--ui-duration) var(--ui-ease);
+}
+
+.star svg {
+  display: block;
+  fill: none;
+  stroke: currentColor;
+  stroke-width: 1.5;
+}
+
+.star.filled {
+  color: var(--ui-warning);
+}
+
+.star.filled svg {
+  fill: currentColor;
+  stroke: currentColor;
+}
+
+.star:not(.readonly):hover {
+  transform: scale(1.15);
+}
+
+.star:focus-visible {
+  outline: none;
+  border-radius: var(--ui-radius);
+  box-shadow: 0 0 0 2px var(--ui-ring);
+}
+
+.star.readonly {
+  pointer-events: none;
+  cursor: default;
+}

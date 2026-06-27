@@ -19,6 +19,8 @@
   white-space: nowrap;
   border: 1px solid transparent;
   border-radius: var(--ui-radius-full);
+  background: transparent;
+  color: var(--ui-foreground);
   font-family: var(--ui-font-sans);
   font-weight: 500;
   cursor: pointer;
