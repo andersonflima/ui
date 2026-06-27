@@ -1,6 +1,6 @@
 {
   "name": "@andespindola/ui-react",
-  "version": "0.3.0",
+  "version": "0.4.0",
   "description": "Wrappers React (e Next.js) para os Web Components do design system @andespindola/ui-core.",
   "license": "MIT",
   "author": "Anderson Espindola <andersonfaustinolima@gmail.com>",
@@ -23,7 +23,7 @@
     "react-dom": ">=18"
   },
   "dependencies": {
-    "@andespindola/ui-core": "0.3.0",
+    "@andespindola/ui-core": "0.4.0",
     "@stencil/react-output-target": "^0.8.1"
   },
   "devDependencies": {
