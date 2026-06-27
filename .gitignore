@@ -17,3 +17,4 @@ packages/angular/src/lib/stencil-generated/
 *.local
 .env
 .eslintcache
+build-storybook.log

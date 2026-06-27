@@ -10,7 +10,10 @@ export class UiCard {
     return (
       <Host>
         <div class="card">
+          <slot name="title"></slot>
+          <slot name="description"></slot>
           <slot></slot>
+          <slot name="footer"></slot>
         </div>
       </Host>
     );

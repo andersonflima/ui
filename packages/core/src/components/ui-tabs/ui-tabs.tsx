@@ -45,7 +45,9 @@ export class UiTabs {
             );
           })}
         </div>
-        <slot name={this.value}></slot>
+        <div class="panel" role="tabpanel">
+          <slot name={this.value}></slot>
+        </div>
       </Host>
     );
   }
