@@ -1,0 +1,143 @@
+---
+title: Overlays
+description: Dialog, drawer, tooltip, popover, menus e command palette.
+---
+
+## Dialog
+
+Abre via método `show()`. Feche com `close()`, Esc ou clique no backdrop.
+
+```html
+<ui-button id="abrir">Abrir dialog</ui-button>
+
+<ui-dialog id="dlg">
+  <h2>Confirmar ação</h2>
+  <p>Tem certeza que deseja continuar?</p>
+  <ui-button variant="solid" id="ok">Confirmar</ui-button>
+</ui-dialog>
+```
+
+```ts
+const dlg = document.querySelector("#dlg");
+document.querySelector("#abrir").addEventListener("click", () => dlg.show());
+document.querySelector("#ok").addEventListener("click", () => dlg.close());
+dlg.addEventListener("uiClose", () => console.log("fechado"));
+```
+
+| Prop   | Tipo    | Padrão  |
+| ------ | ------- | ------- |
+| `open` | boolean | `false` |
+
+Métodos: `show()`, `close()`.
+
+## Drawer
+
+Painel lateral ou inferior. Use `side` para ancorar.
+
+```html
+<ui-drawer id="menu" side="right">
+  <h2>Filtros</h2>
+  <p>Conteúdo do painel.</p>
+</ui-drawer>
+```
+
+```ts
+const drawer = document.querySelector("#menu");
+drawer.show();
+```
+
+| Prop   | Valores             | Padrão   |
+| ------ | ------------------- | -------- |
+| `open` | boolean             | `false`  |
+| `side` | `right` `bottom`    | `right`  |
+
+Métodos: `show()`, `close()`.
+
+## Tooltip
+
+Aparece no hover/focus do elemento dentro do slot.
+
+<div class="ui-demo">
+  <ui-tooltip content="Salva as alterações">
+    <ui-button>Passe o mouse</ui-button>
+  </ui-tooltip>
+</div>
+
+```html
+<ui-tooltip content="Salva as alterações">
+  <ui-button>Passe o mouse</ui-button>
+</ui-tooltip>
+```
+
+| Prop         | Tipo                     | Padrão |
+| ------------ | ------------------------ | ------ |
+| `content`    | string                   | `""`   |
+| `placement`  | `top` `bottom` `left` `right` … | `top`  |
+| `open-delay` | number (ms)              | `200`  |
+
+## Popover
+
+Use o slot `trigger` para o gatilho e o slot padrão para o conteúdo.
+
+```html
+<ui-popover placement="bottom">
+  <ui-button slot="trigger">Mais opções</ui-button>
+  <div>
+    <p>Conteúdo do popover.</p>
+  </div>
+</ui-popover>
+```
+
+| Prop        | Valores                          | Padrão   |
+| ----------- | -------------------------------- | -------- |
+| `open`      | boolean                          | `false`  |
+| `placement` | `top` `bottom` `left` `right` …  | `bottom` |
+
+Métodos: `show()`, `close()`. Evento: `uiOpenChange`.
+
+## Dropdown Menu
+
+Combine `ui-dropdown-menu` com itens `ui-dropdown-item`.
+
+```html
+<ui-dropdown-menu>
+  <ui-button slot="trigger">Ações</ui-button>
+  <ui-dropdown-item>Editar</ui-dropdown-item>
+  <ui-dropdown-item>Duplicar</ui-dropdown-item>
+  <ui-dropdown-item disabled>Arquivar</ui-dropdown-item>
+</ui-dropdown-menu>
+```
+
+```ts
+document.querySelectorAll("ui-dropdown-item").forEach((item) => {
+  item.addEventListener("uiSelect", () => console.log("selecionado"));
+});
+```
+
+`ui-dropdown-item` aceita o atributo booleano `disabled` e emite `uiSelect`.
+
+## Command
+
+Palette de comandos com busca. Itens via propriedade `items` (array). Abre com ⌘K / Ctrl+K.
+
+```html
+<ui-command id="cmd" placeholder="Buscar comando…"></ui-command>
+```
+
+```ts
+const cmd = document.querySelector("#cmd");
+cmd.items = [
+  { label: "Novo arquivo", value: "new", group: "Arquivo", hint: "⌘N" },
+  { label: "Abrir", value: "open", group: "Arquivo" },
+  { label: "Configurações", value: "settings", group: "Geral" },
+];
+cmd.addEventListener("uiSelect", (e) => console.log(e.detail));
+// cmd.show() também abre programaticamente
+```
+
+| Prop          | Tipo            | Padrão            |
+| ------------- | --------------- | ----------------- |
+| `items`       | array (via JS)  | `[]`              |
+| `placeholder` | string          | `Buscar comando…` |
+| `hotkey`      | boolean (⌘K)    | `true`            |
+| `open`        | boolean         | `false`           |

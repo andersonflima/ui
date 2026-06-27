@@ -1,0 +1,179 @@
+---
+title: Feedback
+description: Alertas, toasts, avatares, spinners, skeletons e progress.
+---
+
+## Alert
+
+<div class="ui-demo">
+  <ui-alert variant="info" heading="Informação">Mensagem informativa.</ui-alert>
+  <ui-alert variant="success" heading="Sucesso">Tudo certo!</ui-alert>
+  <ui-alert variant="warning" heading="Atenção">Verifique os dados.</ui-alert>
+  <ui-alert variant="danger" heading="Erro" dismissible>Algo deu errado.</ui-alert>
+</div>
+
+```html
+<ui-alert variant="success" heading="Sucesso">Tudo certo!</ui-alert>
+<ui-alert variant="danger" heading="Erro" dismissible>Algo deu errado.</ui-alert>
+```
+
+| Prop          | Valores                                | Padrão  |
+| ------------- | -------------------------------------- | ------- |
+| `variant`     | `info` `success` `warning` `danger`    | `info`  |
+| `heading`     | string                                 | —       |
+| `dismissible` | boolean                                | `false` |
+
+## Toast / Toaster
+
+Coloque um `ui-toaster` na página e dispare toasts pelo método `toast()`.
+
+```html
+<ui-toaster id="toaster"></ui-toaster>
+```
+
+```ts
+const toaster = document.querySelector("#toaster");
+toaster.toast({
+  heading: "Salvo",
+  description: "Suas alterações foram salvas.",
+  variant: "success",
+  duration: 4000,
+});
+```
+
+Para um toast individual controlado manualmente, use `ui-toast` com `show()` / `close()`.
+
+## Badge
+
+Documentado em [Ações](/componentes/acoes/). Resumo das variantes:
+
+```html
+<ui-badge variant="success" dot>online</ui-badge>
+<ui-badge variant="info" removable>removível</ui-badge>
+```
+
+## Avatar
+
+<div class="ui-demo">
+  <ui-avatar fallback="AL"></ui-avatar>
+  <ui-avatar fallback="MR" status="online"></ui-avatar>
+  <ui-avatar fallback="JS" status="busy"></ui-avatar>
+  <ui-avatar fallback="??" status="away"></ui-avatar>
+</div>
+
+```html
+<ui-avatar src="/foto.jpg" alt="Ana"></ui-avatar>
+<ui-avatar fallback="MR" status="online"></ui-avatar>
+```
+
+| Prop       | Valores                                | Padrão |
+| ---------- | -------------------------------------- | ------ |
+| `src`      | string                                 | —      |
+| `alt`      | string                                 | `""`   |
+| `fallback` | string                                 | —      |
+| `status`   | `online` `offline` `busy` `away`       | —      |
+
+### Avatar Group
+
+<div class="ui-demo">
+  <ui-avatar-group>
+    <ui-avatar fallback="AL"></ui-avatar>
+    <ui-avatar fallback="MR"></ui-avatar>
+    <ui-avatar fallback="JS"></ui-avatar>
+    <ui-avatar fallback="+5"></ui-avatar>
+  </ui-avatar-group>
+</div>
+
+```html
+<ui-avatar-group>
+  <ui-avatar fallback="AL"></ui-avatar>
+  <ui-avatar fallback="MR"></ui-avatar>
+  <ui-avatar fallback="+5"></ui-avatar>
+</ui-avatar-group>
+```
+
+## Spinner
+
+<div class="ui-demo">
+  <ui-spinner size="sm"></ui-spinner>
+  <ui-spinner size="md"></ui-spinner>
+  <ui-spinner size="lg"></ui-spinner>
+</div>
+
+```html
+<ui-spinner size="sm"></ui-spinner>
+<ui-spinner size="lg"></ui-spinner>
+```
+
+`size`: `sm` `md` `lg` (padrão `md`).
+
+## Skeleton
+
+<div class="ui-demo">
+  <ui-skeleton style="width: 12rem; height: 1rem;"></ui-skeleton>
+  <ui-skeleton style="width: 8rem; height: 1rem;"></ui-skeleton>
+</div>
+
+```html
+<ui-skeleton style="width: 12rem; height: 1rem;"></ui-skeleton>
+```
+
+## Progress
+
+<div class="ui-demo">
+  <ui-progress value="60"></ui-progress>
+  <ui-progress indeterminate></ui-progress>
+</div>
+
+```html
+<ui-progress value="60"></ui-progress>
+<ui-progress indeterminate></ui-progress>
+```
+
+| Prop            | Tipo    | Padrão | Notas                  |
+| --------------- | ------- | ------ | ---------------------- |
+| `value`         | number  | —      | sem valor = indefinido |
+| `max`           | number  | `100`  |                        |
+| `indeterminate` | boolean | `false`|                        |
+
+## Progress Circular
+
+<div class="ui-demo">
+  <ui-progress-circular value="75" show-value></ui-progress-circular>
+  <ui-progress-circular indeterminate></ui-progress-circular>
+</div>
+
+```html
+<ui-progress-circular value="75" show-value></ui-progress-circular>
+<ui-progress-circular indeterminate></ui-progress-circular>
+```
+
+| Prop          | Tipo    | Padrão  |
+| ------------- | ------- | ------- |
+| `value`       | number  | —       |
+| `max`         | number  | `100`   |
+| `size`        | string  | `3rem`  |
+| `show-value`  | boolean | `false` |
+| `indeterminate` | boolean | `false` |
+
+## Loading Overlay
+
+Cobre o elemento pai (que deve ter `position: relative`).
+
+```html
+<div style="position: relative;">
+  <!-- conteúdo -->
+  <ui-loading-overlay visible label="Carregando…"></ui-loading-overlay>
+</div>
+```
+
+```ts
+const overlay = document.querySelector("ui-loading-overlay");
+overlay.visible = true;
+```
+
+| Prop           | Valores            | Padrão  |
+| -------------- | ------------------ | ------- |
+| `visible`      | boolean            | `false` |
+| `label`        | string             | —       |
+| `spinner-size` | `sm` `md` `lg`     | `md`    |

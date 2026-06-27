@@ -18,3 +18,4 @@ packages/angular/src/lib/stencil-generated/
 .env
 .eslintcache
 build-storybook.log
+.astro

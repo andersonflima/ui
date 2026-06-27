@@ -1,0 +1,64 @@
+---
+title: Ações
+description: Button e Badge — variantes, tamanhos e estados.
+---
+
+## Button
+
+<div class="ui-demo">
+  <ui-button variant="solid">Solid</ui-button>
+  <ui-button>Default</ui-button>
+  <ui-button variant="subtle">Subtle</ui-button>
+  <ui-button variant="outline">Outline</ui-button>
+  <ui-button variant="ghost">Ghost</ui-button>
+  <ui-button variant="destructive">Destructive</ui-button>
+  <ui-button variant="link">Link</ui-button>
+</div>
+
+```html
+<ui-button variant="solid">Solid</ui-button>
+<ui-button variant="outline">Outline</ui-button>
+<ui-button variant="ghost">Ghost</ui-button>
+```
+
+### Tamanhos e estados
+
+<div class="ui-demo">
+  <ui-button size="sm">sm</ui-button>
+  <ui-button size="md">md</ui-button>
+  <ui-button size="lg">lg</ui-button>
+  <ui-button variant="solid" loading>Salvando</ui-button>
+  <ui-button disabled>Disabled</ui-button>
+</div>
+
+```html
+<ui-button size="lg">Grande</ui-button>
+<ui-button variant="solid" loading>Salvando</ui-button>
+<ui-button full>Largura total</ui-button>
+```
+
+### Propriedades
+
+| Prop      | Valores                                                             | Padrão     |
+| --------- | ------------------------------------------------------------------ | ---------- |
+| `variant` | `solid` `default` `subtle` `outline` `ghost` `destructive` `link`  | `default`  |
+| `size`    | `sm` `md` `lg` `icon`                                              | `md`       |
+| `loading` | boolean                                                            | `false`    |
+| `full`    | boolean                                                            | `false`    |
+| `disabled`| boolean                                                            | `false`    |
+
+## Badge
+
+<div class="ui-demo">
+  <ui-badge>default</ui-badge>
+  <ui-badge variant="solid">solid</ui-badge>
+  <ui-badge variant="success" dot>online</ui-badge>
+  <ui-badge variant="warning">warning</ui-badge>
+  <ui-badge variant="danger">danger</ui-badge>
+  <ui-badge variant="info" removable>removível</ui-badge>
+</div>
+
+```html
+<ui-badge variant="success" dot>online</ui-badge>
+<ui-badge variant="info" removable>removível</ui-badge>
+```
