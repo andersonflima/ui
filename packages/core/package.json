@@ -1,6 +1,6 @@
 {
   "name": "@andespindola/ui-core",
-  "version": "0.1.0",
+  "version": "0.1.1",
   "description": "Web Components (design system) com a identidade visual do portfólio andersonespindola.com — base agnóstica de framework para React, Angular e qualquer app.",
   "license": "MIT",
   "author": "Anderson Espindola <andersonfaustinolima@gmail.com>",
