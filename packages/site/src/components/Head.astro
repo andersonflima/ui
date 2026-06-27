@@ -1,0 +1,11 @@
+---
+import Default from "@astrojs/starlight/components/Head.astro";
+---
+
+<Default {...Astro.props}><slot /></Default>
+
+{/* Registra os Web Components e sincroniza o tema (data-theme -> classe .dark). */}
+<script>
+  import "../theme-sync";
+  import "../register";
+</script>

@@ -1,0 +1,144 @@
+---
+title: Layout
+description: Container, stack, grid, card, section, separator e navbar.
+---
+
+## Container
+
+Limita a largura máxima do conteúdo.
+
+```html
+<ui-container size="lg">
+  <p>Conteúdo centralizado.</p>
+</ui-container>
+```
+
+| Prop     | Valores                       | Padrão |
+| -------- | ----------------------------- | ------ |
+| `size`   | `sm` `md` `lg` `xl` `full`    | `lg`   |
+| `padded` | boolean                       | `true` |
+
+## Stack
+
+Empilha elementos com espaçamento consistente.
+
+<div class="ui-demo">
+  <ui-stack direction="horizontal" gap="sm">
+    <ui-badge variant="success">um</ui-badge>
+    <ui-badge variant="info">dois</ui-badge>
+    <ui-badge variant="warning">três</ui-badge>
+  </ui-stack>
+</div>
+
+```html
+<ui-stack direction="horizontal" gap="sm">
+  <ui-badge variant="success">um</ui-badge>
+  <ui-badge variant="info">dois</ui-badge>
+</ui-stack>
+```
+
+| Prop        | Valores                                | Padrão    |
+| ----------- | -------------------------------------- | --------- |
+| `direction` | `vertical` `horizontal`                | `vertical`|
+| `gap`       | `xs` `sm` `md` `lg` `xl`               | `md`      |
+| `align`     | `start` `center` `end` `stretch`       | `stretch` |
+| `justify`   | `start` `center` `end` `between`       | `start`   |
+| `wrap`      | boolean                                | `false`   |
+
+## Grid
+
+```html
+<ui-grid columns="3" gap="md">
+  <div>1</div>
+  <div>2</div>
+  <div>3</div>
+</ui-grid>
+```
+
+| Prop             | Tipo   | Padrão | Notas                          |
+| ---------------- | ------ | ------ | ------------------------------ |
+| `columns`        | number | `12`   |                                |
+| `gap`            | enum   | `md`   | `xs` `sm` `md` `lg` `xl`       |
+| `min-item-width` | string | —      | habilita auto-fit responsivo   |
+
+## Card
+
+Use os slots `title`, `description`, padrão e `footer`.
+
+<div class="ui-demo">
+  <ui-card style="max-width: 22rem;">
+    <span slot="title">Plano Pro</span>
+    <span slot="description">Tudo que você precisa para escalar.</span>
+    <p>Inclui suporte prioritário e recursos avançados.</p>
+    <div slot="footer">
+      <ui-button variant="solid">Assinar</ui-button>
+    </div>
+  </ui-card>
+</div>
+
+```html
+<ui-card>
+  <span slot="title">Plano Pro</span>
+  <span slot="description">Tudo que você precisa para escalar.</span>
+  <p>Inclui suporte prioritário e recursos avançados.</p>
+  <div slot="footer">
+    <ui-button variant="solid">Assinar</ui-button>
+  </div>
+</ui-card>
+```
+
+## Section
+
+<div class="ui-demo">
+  <ui-section eyebrow="Recursos" heading="Tudo em um só lugar" description="Componentes prontos para produção.">
+    <p>Conteúdo da seção.</p>
+  </ui-section>
+</div>
+
+```html
+<ui-section
+  eyebrow="Recursos"
+  heading="Tudo em um só lugar"
+  description="Componentes prontos para produção."
+>
+  <p>Conteúdo da seção.</p>
+</ui-section>
+```
+
+| Prop          | Tipo   | Padrão |
+| ------------- | ------ | ------ |
+| `eyebrow`     | string | `""`   |
+| `heading`     | string | `""`   |
+| `description` | string | `""`   |
+
+## Separator
+
+<div class="ui-demo">
+  <div style="width: 100%;">
+    <p>Acima</p>
+    <ui-separator></ui-separator>
+    <p>Abaixo</p>
+  </div>
+</div>
+
+```html
+<ui-separator></ui-separator>
+<ui-separator orientation="vertical"></ui-separator>
+```
+
+`orientation`: `horizontal` `vertical` (padrão `horizontal`).
+
+## Navbar
+
+Use os slots `brand`, padrão (centro) e `actions`.
+
+```html
+<ui-navbar>
+  <span slot="brand">Minha Marca</span>
+  <a href="#">Produto</a>
+  <a href="#">Preços</a>
+  <div slot="actions">
+    <ui-button variant="solid">Entrar</ui-button>
+  </div>
+</ui-navbar>
+```

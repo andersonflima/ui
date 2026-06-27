@@ -1,0 +1,259 @@
+---
+title: Formulários
+description: Inputs, controles e campos para construir formulários acessíveis.
+---
+
+## Input
+
+<div class="ui-demo">
+  <ui-input placeholder="Digite seu nome"></ui-input>
+  <ui-input placeholder="Com clear" clearable></ui-input>
+  <ui-input placeholder="Inválido" invalid></ui-input>
+  <ui-input placeholder="Desabilitado" disabled></ui-input>
+</div>
+
+```html
+<ui-input placeholder="Digite seu nome"></ui-input>
+<ui-input placeholder="Com clear" clearable></ui-input>
+<ui-input placeholder="Inválido" invalid></ui-input>
+<ui-input placeholder="Desabilitado" disabled></ui-input>
+```
+
+### Prefix e suffix
+
+Use os slots `prefix` e `suffix` para ícones ou unidades.
+
+<div class="ui-demo">
+  <ui-input placeholder="Buscar">
+    <span slot="prefix">🔎</span>
+  </ui-input>
+  <ui-input placeholder="Valor">
+    <span slot="prefix">R$</span>
+    <span slot="suffix">,00</span>
+  </ui-input>
+</div>
+
+```html
+<ui-input placeholder="Buscar">
+  <span slot="prefix">🔎</span>
+</ui-input>
+```
+
+### Propriedades
+
+| Prop          | Tipo    | Padrão   |
+| ------------- | ------- | -------- |
+| `value`       | string  | `""`     |
+| `placeholder` | string  | —        |
+| `type`        | string  | `text`   |
+| `clearable`   | boolean | `false`  |
+| `invalid`     | boolean | `false`  |
+| `disabled`    | boolean | `false`  |
+| `name`        | string  | —        |
+
+## Textarea
+
+<div class="ui-demo">
+  <ui-textarea placeholder="Escreva uma mensagem" rows="4"></ui-textarea>
+</div>
+
+```html
+<ui-textarea placeholder="Escreva uma mensagem" rows="4"></ui-textarea>
+```
+
+| Prop          | Tipo    | Padrão  |
+| ------------- | ------- | ------- |
+| `value`       | string  | `""`    |
+| `placeholder` | string  | —       |
+| `rows`        | number  | `4`     |
+| `invalid`     | boolean | `false` |
+| `disabled`    | boolean | `false` |
+
+## Field
+
+Envolve um controle com `label`, `description` e `error`.
+
+<div class="ui-demo">
+  <ui-field label="E-mail" description="Nunca compartilhamos seu e-mail." required>
+    <ui-input placeholder="voce@exemplo.com" type="email"></ui-input>
+  </ui-field>
+  <ui-field label="Senha" error="A senha é obrigatória.">
+    <ui-input type="password" invalid></ui-input>
+  </ui-field>
+</div>
+
+```html
+<ui-field label="E-mail" description="Nunca compartilhamos seu e-mail." required>
+  <ui-input type="email"></ui-input>
+</ui-field>
+
+<ui-field label="Senha" error="A senha é obrigatória.">
+  <ui-input type="password" invalid></ui-input>
+</ui-field>
+```
+
+| Prop          | Tipo    | Padrão  |
+| ------------- | ------- | ------- |
+| `label`       | string  | —       |
+| `description` | string  | —       |
+| `error`       | string  | —       |
+| `required`    | boolean | `false` |
+
+## Label
+
+<div class="ui-demo">
+  <ui-label>Aceito os termos</ui-label>
+</div>
+
+```html
+<ui-label>Aceito os termos</ui-label>
+```
+
+## Checkbox
+
+<div class="ui-demo">
+  <ui-checkbox>Lembrar de mim</ui-checkbox>
+  <ui-checkbox checked>Marcado</ui-checkbox>
+  <ui-checkbox disabled>Desabilitado</ui-checkbox>
+</div>
+
+```html
+<ui-checkbox>Lembrar de mim</ui-checkbox>
+<ui-checkbox checked>Marcado</ui-checkbox>
+```
+
+## Radio Group
+
+As opções são fornecidas via propriedade `options` (array), por JS.
+
+```html
+<ui-radio-group id="plano" name="plano"></ui-radio-group>
+```
+
+```ts
+const el = document.querySelector("#plano");
+el.options = [
+  { label: "Mensal", value: "monthly" },
+  { label: "Anual", value: "yearly" },
+];
+el.value = "monthly";
+```
+
+## Switch
+
+<div class="ui-demo">
+  <ui-switch></ui-switch>
+  <ui-switch checked></ui-switch>
+  <ui-switch disabled></ui-switch>
+</div>
+
+```html
+<ui-switch></ui-switch>
+<ui-switch checked></ui-switch>
+```
+
+## Slider
+
+<div class="ui-demo">
+  <ui-slider value="40"></ui-slider>
+  <ui-slider value="3" min="0" max="10" step="1"></ui-slider>
+</div>
+
+```html
+<ui-slider value="40"></ui-slider>
+<ui-slider value="3" min="0" max="10" step="1"></ui-slider>
+```
+
+| Prop    | Tipo   | Padrão |
+| ------- | ------ | ------ |
+| `value` | number | `50`   |
+| `min`   | number | `0`    |
+| `max`   | number | `100`  |
+| `step`  | number | `1`    |
+
+## Select
+
+As opções são fornecidas via propriedade `options` (array), por JS.
+
+```html
+<ui-select id="pais" placeholder="Selecione um país"></ui-select>
+```
+
+```ts
+const el = document.querySelector("#pais");
+el.options = [
+  { label: "Brasil", value: "br" },
+  { label: "Portugal", value: "pt" },
+  { label: "Estados Unidos", value: "us" },
+];
+el.value = "br";
+```
+
+## Combobox
+
+Campo com busca; opções via propriedade `options` (array).
+
+```html
+<ui-combobox id="frutas" placeholder="Buscar fruta…"></ui-combobox>
+```
+
+```ts
+const el = document.querySelector("#frutas");
+el.options = [
+  { label: "Maçã", value: "apple" },
+  { label: "Banana", value: "banana" },
+  { label: "Laranja", value: "orange" },
+];
+```
+
+## Segmented
+
+Controle segmentado; itens via propriedade `items` (array).
+
+```html
+<ui-segmented id="view"></ui-segmented>
+```
+
+```ts
+const el = document.querySelector("#view");
+el.items = [
+  { label: "Lista", value: "list" },
+  { label: "Grade", value: "grid" },
+];
+el.value = "list";
+```
+
+## Rating
+
+<div class="ui-demo">
+  <ui-rating value="3"></ui-rating>
+  <ui-rating value="4" max="5" readonly></ui-rating>
+</div>
+
+```html
+<ui-rating value="3"></ui-rating>
+<ui-rating value="4" max="5" readonly></ui-rating>
+```
+
+| Prop       | Tipo    | Padrão  |
+| ---------- | ------- | ------- |
+| `value`    | number  | `0`     |
+| `max`      | number  | `5`     |
+| `readonly` | boolean | `false` |
+
+## File Upload
+
+<div class="ui-demo">
+  <ui-file-upload label="Arraste arquivos ou clique para enviar"></ui-file-upload>
+</div>
+
+```html
+<ui-file-upload label="Arraste arquivos ou clique para enviar"></ui-file-upload>
+<ui-file-upload accept="image/*" multiple></ui-file-upload>
+```
+
+| Prop       | Tipo    | Padrão  |
+| ---------- | ------- | ------- |
+| `label`    | string  | —       |
+| `accept`   | string  | —       |
+| `multiple` | boolean | `false` |
