@@ -3,22 +3,36 @@
 }
 
 .card {
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+  padding: 1.5rem;
   border: 1px solid var(--ui-border);
   background: var(--ui-panel);
   box-shadow: var(--ui-shadow-lg);
   backdrop-filter: blur(22px) saturate(140%);
   border-radius: var(--ui-radius-xl);
-  color: var(--ui-foreground);
-  padding: 1.5rem;
+  color: var(--ui-text-soft);
+  font-family: var(--ui-font-sans);
 }
 
+/* Slots nomeados: vazios usam display:contents (default), então não geram gap. */
 ::slotted([slot="title"]) {
+  margin: 0;
   font-size: 1.125rem;
   font-weight: 600;
   letter-spacing: -0.01em;
+  color: var(--ui-foreground);
 }
 
 ::slotted([slot="description"]) {
-  color: var(--ui-text-muted);
+  margin: 0;
   font-size: 0.875rem;
+  color: var(--ui-text-muted);
+}
+
+::slotted([slot="footer"]) {
+  display: flex;
+  gap: 0.75rem;
+  margin-top: 0.5rem;
 }
