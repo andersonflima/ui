@@ -1,0 +1,30 @@
+:host {
+  display: inline-flex;
+  align-items: center;
+}
+
+.link {
+  color: var(--ui-text-muted);
+  text-decoration: none;
+  transition: color var(--ui-duration) var(--ui-ease);
+}
+
+.link:hover {
+  color: var(--ui-accent);
+}
+
+.current {
+  color: var(--ui-foreground);
+  font-weight: 500;
+}
+
+.separator {
+  display: inline-flex;
+  align-items: center;
+  margin: 0 0.5rem;
+  color: var(--ui-text-faint);
+}
+
+.separator svg {
+  display: block;
+}

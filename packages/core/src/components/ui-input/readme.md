@@ -7,14 +7,15 @@
 
 ## Properties
 
-| Property      | Attribute     | Description                                          | Type                  | Default     |
-| ------------- | ------------- | ---------------------------------------------------- | --------------------- | ----------- |
-| `disabled`    | `disabled`    | Desabilita o campo.                                  | `boolean`             | `false`     |
-| `invalid`     | `invalid`     | Marca o campo como inválido (estilo + aria-invalid). | `boolean`             | `false`     |
-| `name`        | `name`        | Nome do campo.                                       | `string \| undefined` | `undefined` |
-| `placeholder` | `placeholder` | Placeholder.                                         | `string \| undefined` | `undefined` |
-| `type`        | `type`        | Tipo do input nativo.                                | `string`              | `"text"`    |
-| `value`       | `value`       | Valor do campo.                                      | `string`              | `""`        |
+| Property      | Attribute     | Description                                           | Type                  | Default     |
+| ------------- | ------------- | ----------------------------------------------------- | --------------------- | ----------- |
+| `clearable`   | `clearable`   | Exibe um botão para limpar o valor quando preenchido. | `boolean`             | `false`     |
+| `disabled`    | `disabled`    | Desabilita o campo.                                   | `boolean`             | `false`     |
+| `invalid`     | `invalid`     | Marca o campo como inválido (estilo + aria-invalid).  | `boolean`             | `false`     |
+| `name`        | `name`        | Nome do campo.                                        | `string \| undefined` | `undefined` |
+| `placeholder` | `placeholder` | Placeholder.                                          | `string \| undefined` | `undefined` |
+| `type`        | `type`        | Tipo do input nativo.                                 | `string`              | `"text"`    |
+| `value`       | `value`       | Valor do campo.                                       | `string`              | `""`        |
 
 
 ## Events

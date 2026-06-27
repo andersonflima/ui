@@ -1,0 +1,59 @@
+:host {
+  display: inline-block;
+}
+
+.pagination {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.25rem;
+  font-family: var(--ui-font-sans);
+}
+
+.page {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  min-width: 2.25rem;
+  height: 2.25rem;
+  padding: 0 0.5rem;
+  border: 1px solid var(--ui-border);
+  border-radius: var(--ui-radius-sm);
+  background: transparent;
+  color: var(--ui-foreground);
+  font-family: var(--ui-font-sans);
+  font-size: 0.875rem;
+  cursor: pointer;
+  outline: none;
+  transition: all var(--ui-duration) var(--ui-ease);
+}
+
+.page:hover {
+  border-color: var(--ui-border-strong);
+  background: var(--ui-chip);
+}
+
+.page:focus-visible {
+  box-shadow: 0 0 0 2px var(--ui-ring);
+}
+
+.page:disabled {
+  pointer-events: none;
+  opacity: 0.5;
+}
+
+.page.active {
+  background: var(--ui-accent);
+  color: var(--ui-accent-contrast);
+  border-color: var(--ui-accent);
+  box-shadow: var(--ui-shadow-sm);
+}
+
+.ellipsis {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  min-width: 2.25rem;
+  height: 2.25rem;
+  color: var(--ui-text-faint);
+  font-size: 0.875rem;
+}

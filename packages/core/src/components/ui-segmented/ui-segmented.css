@@ -1,0 +1,46 @@
+:host {
+  display: inline-block;
+}
+
+.track {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.125rem;
+  padding: 0.25rem;
+  border: 1px solid var(--ui-border);
+  border-radius: var(--ui-radius-full);
+  background: var(--ui-chip);
+  font-family: var(--ui-font-sans);
+}
+
+.segment {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  height: 2rem;
+  padding: 0 0.875rem;
+  border: none;
+  border-radius: var(--ui-radius-full);
+  background: transparent;
+  color: var(--ui-text-muted);
+  font-family: var(--ui-font-sans);
+  font-size: 0.8125rem;
+  font-weight: 500;
+  cursor: pointer;
+  outline: none;
+  transition: all var(--ui-duration) var(--ui-ease);
+}
+
+.segment:hover {
+  color: var(--ui-foreground);
+}
+
+.segment:focus-visible {
+  box-shadow: 0 0 0 2px var(--ui-ring);
+}
+
+.segment.active {
+  background: var(--ui-panel-strong);
+  color: var(--ui-foreground);
+  box-shadow: var(--ui-shadow-sm);
+}

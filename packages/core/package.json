@@ -1,6 +1,6 @@
 {
   "name": "@andespindola/ui-core",
-  "version": "0.1.1",
+  "version": "0.2.0",
   "description": "Web Components (design system) com a identidade visual do portfólio andersonespindola.com — base agnóstica de framework para React, Angular e qualquer app.",
   "license": "MIT",
   "author": "Anderson Espindola <andersonfaustinolima@gmail.com>",
@@ -30,8 +30,13 @@
       "import": "./dist/components/*.js"
     }
   },
-  "files": ["dist", "loader"],
-  "publishConfig": { "access": "public" },
+  "files": [
+    "dist",
+    "loader"
+  ],
+  "publishConfig": {
+    "access": "public"
+  },
   "scripts": {
     "build": "stencil build",
     "start": "stencil build --dev --watch --serve",

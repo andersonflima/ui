@@ -2,6 +2,15 @@
   display: inline-block;
 }
 
+:host([full]) {
+  display: block;
+  width: 100%;
+}
+
+:host([full]) .btn {
+  width: 100%;
+}
+
 .btn {
   display: inline-flex;
   align-items: center;
@@ -84,10 +93,11 @@
 
 .variant-outline {
   color: var(--ui-foreground);
-  border-color: var(--ui-border-strong);
+  border-color: color-mix(in srgb, var(--ui-foreground) 30%, transparent);
 }
 .variant-outline:hover {
   background: var(--ui-chip);
+  border-color: color-mix(in srgb, var(--ui-foreground) 45%, transparent);
 }
 
 .variant-ghost {
