@@ -62,6 +62,16 @@ Para usar só os tokens (sem componentes): `import "@andespindola/ui/theme.css"`
 - **Animação**: `Reveal`, `MagneticLink`, `ScrollProgress` + presets em `motion`
 - **Tema**: `ThemeProvider`, `useTheme`, `ThemeToggle`
 
+## Documentação (Storybook)
+
+Catálogo visual interativo de todos os componentes, com toggle de tema
+**light/dark** e checagem de acessibilidade (addon a11y):
+
+```bash
+npm run storybook         # dev server em http://localhost:6006
+npm run build-storybook   # build estático em storybook-static/
+```
+
 ## Desenvolvimento
 
 ```bash
@@ -69,6 +79,7 @@ npm install
 npm run build       # gera dist/ (ESM + CJS + types + style.css)
 npm run test:run    # testes
 npm run typecheck
+npm run storybook   # catálogo de componentes
 ```
 
 ## Licença
