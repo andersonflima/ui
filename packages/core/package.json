@@ -1,0 +1,47 @@
+{
+  "name": "@andespindola/ui-core",
+  "version": "0.1.0",
+  "description": "Web Components (design system) com a identidade visual do portfólio andersonespindola.com — base agnóstica de framework para React, Angular e qualquer app.",
+  "license": "MIT",
+  "author": "Anderson Espindola <andersonfaustinolima@gmail.com>",
+  "type": "module",
+  "main": "dist/index.cjs.js",
+  "module": "dist/index.js",
+  "types": "dist/types/index.d.ts",
+  "collection": "dist/collection/collection-manifest.json",
+  "collection:main": "dist/collection/index.js",
+  "unpkg": "dist/uikit/uikit.esm.js",
+  "exports": {
+    ".": {
+      "types": "./dist/types/index.d.ts",
+      "import": "./dist/index.js",
+      "require": "./dist/index.cjs.js"
+    },
+    "./styles.css": "./dist/uikit/uikit.css",
+    "./dist/uikit/uikit.css": "./dist/uikit/uikit.css",
+    "./dist/components/*": "./dist/components/*",
+    "./loader": {
+      "types": "./loader/index.d.ts",
+      "import": "./loader/index.js",
+      "require": "./loader/index.cjs.js"
+    },
+    "./components/*": {
+      "types": "./dist/components/*.d.ts",
+      "import": "./dist/components/*.js"
+    }
+  },
+  "files": ["dist", "loader"],
+  "publishConfig": { "access": "public" },
+  "scripts": {
+    "build": "stencil build",
+    "start": "stencil build --dev --watch --serve",
+    "test": "stencil test --spec"
+  },
+  "dependencies": {
+    "@stencil/core": "^4.22.0"
+  },
+  "devDependencies": {
+    "@stencil/angular-output-target": "^0.10.1",
+    "@stencil/react-output-target": "^0.8.1"
+  }
+}

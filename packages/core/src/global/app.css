@@ -1,0 +1,7 @@
+/* Tokens globais (light/dark) — custom properties penetram o shadow DOM. */
+@import "./tokens.css";
+
+/* Reset mínimo para o host dos componentes. */
+:where(html) {
+  font-family: var(--ui-font-sans);
+}

@@ -1,0 +1,46 @@
+:host {
+  display: inline-flex;
+}
+
+.badge {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.25rem;
+  border: 1px solid transparent;
+  border-radius: var(--ui-radius-full);
+  padding: 0.25rem 0.75rem;
+  font-family: var(--ui-font-sans);
+  font-size: 0.75rem;
+  font-weight: 500;
+  backdrop-filter: blur(22px);
+}
+
+.variant-default {
+  background: var(--ui-chip);
+  border-color: var(--ui-border);
+  color: var(--ui-text-soft);
+}
+.variant-solid {
+  background: var(--ui-accent);
+  color: var(--ui-accent-contrast);
+}
+.variant-outline {
+  border-color: var(--ui-border-strong);
+  color: var(--ui-foreground);
+}
+.variant-success {
+  background: color-mix(in srgb, var(--ui-success) 15%, transparent);
+  color: var(--ui-success);
+}
+.variant-warning {
+  background: color-mix(in srgb, var(--ui-warning) 15%, transparent);
+  color: var(--ui-warning);
+}
+.variant-danger {
+  background: color-mix(in srgb, var(--ui-danger) 15%, transparent);
+  color: var(--ui-danger);
+}
+.variant-info {
+  background: color-mix(in srgb, var(--ui-info) 15%, transparent);
+  color: var(--ui-info);
+}

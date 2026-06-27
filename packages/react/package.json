@@ -1,0 +1,29 @@
+{
+  "name": "@andespindola/ui-react",
+  "version": "0.1.0",
+  "description": "Wrappers React (e Next.js) para os Web Components do design system @andespindola/ui-core.",
+  "license": "MIT",
+  "author": "Anderson Espindola <andersonfaustinolima@gmail.com>",
+  "type": "module",
+  "main": "dist/index.js",
+  "module": "dist/index.js",
+  "types": "dist/index.d.ts",
+  "files": ["dist"],
+  "publishConfig": { "access": "public" },
+  "scripts": {
+    "build": "tsc -p tsconfig.json"
+  },
+  "peerDependencies": {
+    "react": ">=18",
+    "react-dom": ">=18"
+  },
+  "dependencies": {
+    "@andespindola/ui-core": "0.1.0",
+    "@stencil/react-output-target": "^0.8.1"
+  },
+  "devDependencies": {
+    "@types/react": "^18.3.18",
+    "@types/react-dom": "^18.3.5",
+    "typescript": "^5.7.3"
+  }
+}
