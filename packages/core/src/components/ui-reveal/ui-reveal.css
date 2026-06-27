@@ -1,0 +1,17 @@
+:host {
+  display: block;
+}
+
+.reveal {
+  opacity: 0;
+  transform: translateY(16px);
+  filter: blur(8px);
+  transition: opacity 0.6s var(--ui-ease), transform 0.6s var(--ui-ease),
+    filter 0.6s var(--ui-ease);
+}
+
+.reveal.visible {
+  opacity: 1;
+  transform: none;
+  filter: none;
+}

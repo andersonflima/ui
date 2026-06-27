@@ -1,0 +1,15 @@
+:host {
+  display: block;
+  background: var(--ui-border);
+}
+
+:host(.orientation-horizontal) {
+  width: 100%;
+  height: 1px;
+}
+
+:host(.orientation-vertical) {
+  display: inline-block;
+  width: 1px;
+  height: 100%;
+}
