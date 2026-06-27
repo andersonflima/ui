@@ -1,6 +1,6 @@
 {
   "name": "@andespindola/ui-angular",
-  "version": "0.3.0",
+  "version": "0.4.0",
   "description": "Wrappers Angular para os Web Components do design system @andespindola/ui-core.",
   "license": "MIT",
   "author": "Anderson Espindola <andersonfaustinolima@gmail.com>",
@@ -12,7 +12,7 @@
     "@angular/common": ">=16"
   },
   "dependencies": {
-    "@andespindola/ui-core": "0.3.0",
+    "@andespindola/ui-core": "0.4.0",
     "tslib": "^2.8.0"
   },
   "devDependencies": {
