@@ -1,0 +1,22 @@
+:host {
+  display: inline-flex;
+}
+
+.group {
+  display: inline-flex;
+  align-items: center;
+}
+
+/* Sobreposição: cada avatar (exceto o primeiro) recua e ganha um anel. */
+::slotted(*) {
+  border-radius: var(--ui-radius-full);
+}
+
+::slotted(*:not(:first-child)) {
+  margin-left: -0.6rem;
+}
+
+::slotted(ui-avatar) {
+  outline: 2px solid var(--ui-background);
+  border-radius: var(--ui-radius-full);
+}

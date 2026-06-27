@@ -1,0 +1,38 @@
+:host {
+  display: block;
+  width: 100%;
+}
+
+.container {
+  margin-inline: auto;
+  width: 100%;
+  font-family: var(--ui-font-sans);
+}
+
+/* Tamanhos */
+.size-sm {
+  max-width: 40rem;
+}
+.size-md {
+  max-width: 48rem;
+}
+.size-lg {
+  max-width: 64rem;
+}
+.size-xl {
+  max-width: 80rem;
+}
+.size-full {
+  max-width: none;
+}
+
+/* Padding lateral responsivo */
+.padded {
+  padding-inline: 1.25rem;
+}
+
+@media (min-width: 640px) {
+  .padded {
+    padding-inline: 2rem;
+  }
+}
