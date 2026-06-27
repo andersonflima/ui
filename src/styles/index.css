@@ -41,6 +41,133 @@
   }
 }
 
+@keyframes ui-fade-in {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
+}
+
+@keyframes ui-fade-out {
+  from {
+    opacity: 1;
+  }
+  to {
+    opacity: 0;
+  }
+}
+
+@keyframes ui-pop-in {
+  from {
+    opacity: 0;
+    transform: scale(0.96) translateY(6px);
+  }
+  to {
+    opacity: 1;
+    transform: scale(1) translateY(0);
+  }
+}
+
+@keyframes ui-pop-out {
+  from {
+    opacity: 1;
+    transform: scale(1) translateY(0);
+  }
+  to {
+    opacity: 0;
+    transform: scale(0.96) translateY(6px);
+  }
+}
+
+@keyframes ui-slide-in-right {
+  from {
+    transform: translateX(100%);
+  }
+  to {
+    transform: translateX(0);
+  }
+}
+
+@keyframes ui-slide-out-right {
+  from {
+    transform: translateX(0);
+  }
+  to {
+    transform: translateX(100%);
+  }
+}
+
+@keyframes ui-slide-in-bottom {
+  from {
+    transform: translateY(100%);
+  }
+  to {
+    transform: translateY(0);
+  }
+}
+
+@keyframes ui-slide-out-bottom {
+  from {
+    transform: translateY(0);
+  }
+  to {
+    transform: translateY(100%);
+  }
+}
+
+/* Animações de overlay dirigidas pelo data-state do Radix (padrão oficial). */
+[data-ui-overlay][data-state="open"] {
+  animation: ui-fade-in var(--ui-duration) var(--ui-ease);
+}
+[data-ui-overlay][data-state="closed"] {
+  animation: ui-fade-out var(--ui-duration) var(--ui-ease);
+}
+[data-ui-pop][data-state="open"] {
+  animation: ui-pop-in var(--ui-duration) var(--ui-ease);
+}
+[data-ui-pop][data-state="closed"] {
+  animation: ui-pop-out 150ms var(--ui-ease);
+}
+[data-ui-drawer="right"][data-state="open"] {
+  animation: ui-slide-in-right var(--ui-duration) var(--ui-ease);
+}
+[data-ui-drawer="right"][data-state="closed"] {
+  animation: ui-slide-out-right var(--ui-duration) var(--ui-ease);
+}
+[data-ui-drawer="bottom"][data-state="open"] {
+  animation: ui-slide-in-bottom var(--ui-duration) var(--ui-ease);
+}
+[data-ui-drawer="bottom"][data-state="closed"] {
+  animation: ui-slide-out-bottom var(--ui-duration) var(--ui-ease);
+}
+
+@keyframes ui-accordion-down {
+  from {
+    height: 0;
+  }
+  to {
+    height: var(--radix-accordion-content-height);
+  }
+}
+
+@keyframes ui-accordion-up {
+  from {
+    height: var(--radix-accordion-content-height);
+  }
+  to {
+    height: 0;
+  }
+}
+
+[data-ui-accordion-content][data-state="open"] {
+  animation: ui-accordion-down var(--ui-duration) var(--ui-ease);
+}
+[data-ui-accordion-content][data-state="closed"] {
+  animation: ui-accordion-up var(--ui-duration) var(--ui-ease);
+}
+
 @keyframes ui-shimmer {
   0% {
     background-position: -200% 0;
