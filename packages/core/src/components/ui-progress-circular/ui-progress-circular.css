@@ -1,0 +1,46 @@
+:host {
+  display: inline-flex;
+  position: relative;
+  align-items: center;
+  justify-content: center;
+}
+
+.ring {
+  display: block;
+}
+
+.ring.indeterminate {
+  animation: ui-progress-circular-spin 1s linear infinite;
+  transform-origin: center;
+}
+
+.track {
+  fill: none;
+  stroke: var(--ui-chip);
+}
+
+.indicator {
+  fill: none;
+  stroke: var(--ui-accent);
+  transform: rotate(-90deg);
+  transform-origin: center;
+  transition: stroke-dashoffset var(--ui-duration) var(--ui-ease);
+}
+
+.value {
+  position: absolute;
+  inset: 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-family: var(--ui-font-sans);
+  font-size: 0.8rem;
+  font-weight: 600;
+  color: var(--ui-foreground);
+}
+
+@keyframes ui-progress-circular-spin {
+  to {
+    transform: rotate(360deg);
+  }
+}
