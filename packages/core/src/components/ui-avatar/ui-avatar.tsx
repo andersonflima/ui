@@ -15,14 +15,22 @@ export class UiAvatar {
   /** Texto exibido quando não há imagem (ex.: iniciais). */
   @Prop() fallback?: string;
 
+  /** Indicador de status. */
+  @Prop() status?: "online" | "offline" | "busy" | "away";
+
   render() {
     return (
       <Host>
-        <span class="avatar">
-          {this.src ? (
-            <img class="image" src={this.src} alt={this.alt} />
-          ) : (
-            <span class="fallback">{this.fallback}</span>
+        <span class="wrapper">
+          <span class="avatar">
+            {this.src ? (
+              <img class="image" src={this.src} alt={this.alt} />
+            ) : (
+              <span class="fallback">{this.fallback}</span>
+            )}
+          </span>
+          {this.status && (
+            <span class={`status status-${this.status}`} aria-label={this.status}></span>
           )}
         </span>
       </Host>

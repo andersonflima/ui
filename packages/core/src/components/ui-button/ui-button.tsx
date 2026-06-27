@@ -26,6 +26,8 @@ export class UiButton {
   @Prop() loading = false;
   /** Tipo do botão nativo. */
   @Prop() type: "button" | "submit" | "reset" = "button";
+  /** Ocupa 100% da largura disponível. */
+  @Prop({ reflect: true }) full = false;
 
   render() {
     return (

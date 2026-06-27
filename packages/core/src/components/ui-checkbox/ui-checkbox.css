@@ -9,12 +9,16 @@
   width: 1.25rem;
   height: 1.25rem;
   padding: 0;
-  border: 1px solid var(--ui-border-strong);
+  border: 1.5px solid color-mix(in srgb, var(--ui-foreground) 32%, transparent);
   border-radius: var(--ui-radius-sm);
-  background: var(--ui-panel);
+  background: var(--ui-chip);
   cursor: pointer;
   outline: none;
   transition: all var(--ui-duration) var(--ui-ease);
+}
+
+.checkbox:hover:not(:disabled):not([aria-checked="true"]) {
+  border-color: var(--ui-accent);
 }
 
 .checkbox:focus-visible {

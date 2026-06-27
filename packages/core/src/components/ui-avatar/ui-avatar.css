@@ -28,3 +28,34 @@
   color: var(--ui-text-muted);
   line-height: 1;
 }
+
+.wrapper {
+  position: relative;
+  display: inline-flex;
+}
+
+.status {
+  position: absolute;
+  right: 0;
+  bottom: 0;
+  width: 28%;
+  height: 28%;
+  min-width: 0.55rem;
+  min-height: 0.55rem;
+  border-radius: var(--ui-radius-full);
+  border: 2px solid var(--ui-background);
+  box-sizing: border-box;
+}
+
+.status-online {
+  background: var(--ui-success);
+}
+.status-busy {
+  background: var(--ui-danger);
+}
+.status-away {
+  background: var(--ui-warning);
+}
+.status-offline {
+  background: var(--ui-text-faint);
+}
