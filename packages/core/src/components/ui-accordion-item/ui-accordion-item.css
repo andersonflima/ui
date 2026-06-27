@@ -21,6 +21,14 @@ summary::-webkit-details-marker {
   display: none;
 }
 
+summary:hover {
+  color: var(--ui-accent);
+}
+
+summary:hover .chevron {
+  color: var(--ui-accent);
+}
+
 summary:focus-visible {
   box-shadow: 0 0 0 2px var(--ui-background), 0 0 0 4px var(--ui-ring);
   border-radius: var(--ui-radius-sm);

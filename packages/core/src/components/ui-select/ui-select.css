@@ -27,6 +27,10 @@
   appearance: none;
 }
 
+.select:hover:not(:disabled) {
+  border-color: var(--ui-border-strong);
+}
+
 .select:focus-visible {
   border-color: var(--ui-accent);
   box-shadow: 0 0 0 2px var(--ui-ring);

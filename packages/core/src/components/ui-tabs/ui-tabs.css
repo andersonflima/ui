@@ -32,7 +32,19 @@
   box-shadow: 0 0 0 2px var(--ui-background), 0 0 0 4px var(--ui-ring);
 }
 
+.tab:hover:not(.active) {
+  color: var(--ui-foreground);
+}
+
 .tab.active {
   background: var(--ui-panel-strong);
   color: var(--ui-foreground);
+  box-shadow: var(--ui-shadow-sm);
+}
+
+.panel {
+  margin-top: 1.25rem;
+  color: var(--ui-text-soft);
+  font-size: 0.9375rem;
+  line-height: 1.5;
 }
