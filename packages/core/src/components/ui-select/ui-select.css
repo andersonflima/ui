@@ -1,0 +1,49 @@
+:host {
+  display: block;
+}
+
+.wrapper {
+  position: relative;
+  display: block;
+  width: 100%;
+}
+
+.select {
+  width: 100%;
+  height: 2.75rem;
+  padding: 0 2.5rem 0 1rem;
+  border: 1px solid var(--ui-border);
+  border-radius: var(--ui-radius-sm);
+  background: var(--ui-panel);
+  color: var(--ui-foreground);
+  font-family: var(--ui-font-sans);
+  font-size: 0.875rem;
+  outline: none;
+  backdrop-filter: blur(22px);
+  transition: all var(--ui-duration) var(--ui-ease);
+  box-sizing: border-box;
+  cursor: pointer;
+  -webkit-appearance: none;
+  appearance: none;
+}
+
+.select:focus-visible {
+  border-color: var(--ui-accent);
+  box-shadow: 0 0 0 2px var(--ui-ring);
+}
+
+.select:disabled {
+  opacity: 0.5;
+  pointer-events: none;
+}
+
+.chevron {
+  position: absolute;
+  top: 50%;
+  right: 0.875rem;
+  width: 1.125rem;
+  height: 1.125rem;
+  color: var(--ui-text-muted);
+  transform: translateY(-50%);
+  pointer-events: none;
+}

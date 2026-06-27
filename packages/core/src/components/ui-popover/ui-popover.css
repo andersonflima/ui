@@ -1,0 +1,36 @@
+:host {
+  display: inline-block;
+}
+
+.trigger {
+  display: inline-flex;
+}
+
+.panel {
+  position: fixed;
+  top: 0;
+  left: 0;
+  z-index: 50;
+  width: 18rem;
+  max-width: calc(100vw - 1rem);
+  padding: 1rem;
+  font-family: var(--ui-font-sans);
+  color: var(--ui-foreground);
+  border: 1px solid var(--ui-border);
+  background: var(--ui-panel-strong);
+  box-shadow: var(--ui-shadow-lg);
+  backdrop-filter: blur(22px);
+  border-radius: var(--ui-radius);
+  visibility: hidden;
+  opacity: 0;
+  transform: scale(0.96);
+  transition:
+    opacity var(--ui-duration) var(--ui-ease),
+    transform var(--ui-duration) var(--ui-ease);
+}
+
+.panel.is-open {
+  visibility: visible;
+  opacity: 1;
+  transform: scale(1);
+}

@@ -1,0 +1,30 @@
+:host {
+  display: inline-block;
+  /* Tamanho customizável via --ui-avatar-size (default 2.5rem). */
+}
+
+.avatar {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: var(--ui-avatar-size, 2.5rem);
+  height: var(--ui-avatar-size, 2.5rem);
+  border-radius: var(--ui-radius-full);
+  border: 1px solid var(--ui-border);
+  background: var(--ui-chip);
+  overflow: hidden;
+  font-family: var(--ui-font-sans);
+}
+
+.image {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.fallback {
+  font-size: 0.875rem;
+  font-weight: 500;
+  color: var(--ui-text-muted);
+  line-height: 1;
+}
