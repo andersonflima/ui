@@ -2,6 +2,15 @@ node_modules
 dist
 storybook-static
 coverage
+
+# Monorepo (Stencil) — artefatos gerados pelo build do core
+.stencil
+packages/core/loader
+packages/core/www
+packages/core/src/components.d.ts
+packages/react/src/components.ts
+packages/react/src/index.ts
+packages/angular/src/lib/stencil-generated/
 *.tgz
 .DS_Store
 .vite

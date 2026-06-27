@@ -23,6 +23,9 @@
     "dark-mode"
   ],
   "type": "module",
+  "workspaces": [
+    "packages/*"
+  ],
   "sideEffects": [
     "**/*.css"
   ],
