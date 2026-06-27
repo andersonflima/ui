@@ -58,3 +58,7 @@ export const Tamanhos: Story = {
     </div>
   ),
 };
+
+export const Carregando: Story = {
+  args: { loading: true, variant: "solid", children: "Salvando" },
+};
