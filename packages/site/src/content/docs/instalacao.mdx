@@ -1,0 +1,91 @@
+---
+title: Instalação
+description: Como instalar e usar o design system em React, Next.js, Angular ou vanilla.
+---
+
+import { Tabs, TabItem } from "@astrojs/starlight/components";
+
+O design system é distribuído em três pacotes a partir de um núcleo de Web Components:
+
+- **`@andespindola/ui-core`** — Web Components + tokens (qualquer framework / vanilla)
+- **`@andespindola/ui-react`** — wrappers React (e Next.js)
+- **`@andespindola/ui-angular`** — componentes standalone Angular
+
+<Tabs syncKey="framework">
+  <TabItem label="React / Next">
+
+```bash
+npm install @andespindola/ui-react @andespindola/ui-core
+```
+
+```tsx
+import "@andespindola/ui-core/styles.css";
+import { UiButton, UiCard } from "@andespindola/ui-react";
+
+export function App() {
+  return (
+    <UiCard>
+      <UiButton variant="solid">Começar</UiButton>
+    </UiCard>
+  );
+}
+```
+
+> No Next.js (App Router) os componentes já vêm marcados como Client Components.
+
+  </TabItem>
+  <TabItem label="Angular">
+
+```bash
+npm install @andespindola/ui-angular @andespindola/ui-core
+```
+
+```ts
+import { Component } from "@angular/core";
+import { UiButton, UiCard } from "@andespindola/ui-angular";
+
+@Component({
+  selector: "app-root",
+  standalone: true,
+  imports: [UiButton, UiCard],
+  template: `<ui-card><ui-button variant="solid">Começar</ui-button></ui-card>`,
+})
+export class AppComponent {}
+```
+
+E no `styles.css` global:
+
+```css
+@import "@andespindola/ui-core/styles.css";
+```
+
+  </TabItem>
+  <TabItem label="Vanilla">
+
+```bash
+npm install @andespindola/ui-core
+```
+
+```ts
+import { defineCustomElements } from "@andespindola/ui-core/loader";
+import "@andespindola/ui-core/styles.css";
+
+defineCustomElements();
+```
+
+```html
+<ui-button variant="solid">Começar</ui-button>
+```
+
+  </TabItem>
+</Tabs>
+
+## Tema escuro
+
+O tema é controlado por uma classe `dark` no elemento raiz:
+
+```html
+<html class="dark">
+  ...
+</html>
+```

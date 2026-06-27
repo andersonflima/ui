@@ -1,0 +1,60 @@
+---
+title: Temas
+description: Tokens de design, tema claro/escuro e presets de cor.
+---
+
+Todo o visual é controlado por **design tokens** em CSS variables (prefixadas `--ui-`).
+Você pode customizar o sistema sobrescrevendo esses tokens — sem tocar nos componentes.
+
+## Claro e escuro
+
+O tema escuro é ativado pela classe `dark` no elemento raiz. Os tokens trocam
+automaticamente; nenhum componente precisa de alteração.
+
+```html
+<html class="dark">
+  ...
+</html>
+```
+
+## Presets de cor
+
+Classes utilitárias trocam apenas a cor de marca (accent). Combine com `dark`:
+
+<div class="ui-demo">
+  <div class="dark theme-violet" style="display:flex;gap:.5rem;align-items:center;padding:.6rem;border-radius:12px">
+    <ui-button variant="solid" size="sm">violet</ui-button><ui-switch checked></ui-switch>
+  </div>
+  <div class="dark theme-emerald" style="display:flex;gap:.5rem;align-items:center;padding:.6rem;border-radius:12px">
+    <ui-button variant="solid" size="sm">emerald</ui-button><ui-switch checked></ui-switch>
+  </div>
+  <div class="dark theme-amber" style="display:flex;gap:.5rem;align-items:center;padding:.6rem;border-radius:12px">
+    <ui-button variant="solid" size="sm">amber</ui-button><ui-switch checked></ui-switch>
+  </div>
+  <div class="dark theme-rose" style="display:flex;gap:.5rem;align-items:center;padding:.6rem;border-radius:12px">
+    <ui-button variant="solid" size="sm">rose</ui-button><ui-switch checked></ui-switch>
+  </div>
+</div>
+
+```html
+<html class="dark theme-violet">
+  <!-- accent vira violeta -->
+</html>
+```
+
+Presets disponíveis: `theme-violet`, `theme-emerald`, `theme-amber`, `theme-rose`, `theme-blue`
+(o padrão é cyan).
+
+## Sobrescrevendo tokens
+
+Para uma identidade própria, sobrescreva os tokens no seu CSS:
+
+```css
+:root {
+  --ui-accent: #ff6b6b;
+  --ui-radius: 0.75rem;
+  --ui-font-sans: "Geist", sans-serif;
+}
+```
+
+Apenas os tokens (sem componentes): `import "@andespindola/ui-core/theme.css"`.

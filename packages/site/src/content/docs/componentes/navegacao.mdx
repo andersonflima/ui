@@ -1,0 +1,106 @@
+---
+title: Navegação
+description: Tabs, accordion, breadcrumb, paginação e theme toggle.
+---
+
+## Tabs
+
+Os itens são fornecidos via propriedade `items` (array); o conteúdo de cada aba vai em um slot nomeado pelo `value`.
+
+```html
+<ui-tabs id="tabs" value="conta">
+  <div slot="conta">Configurações da conta.</div>
+  <div slot="seguranca">Configurações de segurança.</div>
+</ui-tabs>
+```
+
+```ts
+const tabs = document.querySelector("#tabs");
+tabs.items = [
+  { label: "Conta", value: "conta" },
+  { label: "Segurança", value: "seguranca" },
+];
+tabs.addEventListener("uiChange", (e) => console.log(e.detail));
+```
+
+## Accordion
+
+Combine `ui-accordion` com itens `ui-accordion-item`.
+
+<div class="ui-demo">
+  <ui-accordion style="width: 100%;">
+    <ui-accordion-item heading="O que é o design system?" open>
+      Um conjunto de componentes reutilizáveis.
+    </ui-accordion-item>
+    <ui-accordion-item heading="Como instalar?">
+      Veja a página de introdução.
+    </ui-accordion-item>
+    <ui-accordion-item heading="É acessível?">
+      Sim, segue práticas de acessibilidade.
+    </ui-accordion-item>
+  </ui-accordion>
+</div>
+
+```html
+<ui-accordion>
+  <ui-accordion-item heading="Pergunta 1" open>Resposta 1.</ui-accordion-item>
+  <ui-accordion-item heading="Pergunta 2">Resposta 2.</ui-accordion-item>
+</ui-accordion>
+```
+
+`ui-accordion-item` — `heading` (string) e `open` (boolean).
+
+## Breadcrumb
+
+Combine `ui-breadcrumb` com itens `ui-breadcrumb-item`.
+
+<div class="ui-demo">
+  <ui-breadcrumb>
+    <ui-breadcrumb-item href="/">Início</ui-breadcrumb-item>
+    <ui-breadcrumb-item href="/componentes">Componentes</ui-breadcrumb-item>
+    <ui-breadcrumb-item current>Navegação</ui-breadcrumb-item>
+  </ui-breadcrumb>
+</div>
+
+```html
+<ui-breadcrumb>
+  <ui-breadcrumb-item href="/">Início</ui-breadcrumb-item>
+  <ui-breadcrumb-item href="/componentes">Componentes</ui-breadcrumb-item>
+  <ui-breadcrumb-item current>Navegação</ui-breadcrumb-item>
+</ui-breadcrumb>
+```
+
+`ui-breadcrumb-item` — `href` (string) e `current` (boolean).
+
+## Pagination
+
+<div class="ui-demo">
+  <ui-pagination total="10" current="3"></ui-pagination>
+</div>
+
+```html
+<ui-pagination total="10" current="3"></ui-pagination>
+```
+
+```ts
+const pg = document.querySelector("ui-pagination");
+pg.addEventListener("uiChange", (e) => console.log(e.detail));
+```
+
+| Prop       | Tipo   | Padrão |
+| ---------- | ------ | ------ |
+| `total`    | number | `1`    |
+| `current`  | number | `1`    |
+| `siblings` | number | `1`    |
+
+## Theme Toggle
+
+<div class="ui-demo">
+  <ui-theme-toggle></ui-theme-toggle>
+</div>
+
+```html
+<ui-theme-toggle></ui-theme-toggle>
+```
+
+Emite `uiThemeChange` com `"light"` ou `"dark"` e persiste a preferência no `localStorage`.

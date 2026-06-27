@@ -1,0 +1,23 @@
+/* Aproxima o tema do Starlight da identidade do design system. */
+:root {
+  --sl-font: var(--ui-font-sans);
+}
+
+:root[data-theme="dark"] {
+  --sl-color-accent: var(--ui-accent);
+  --sl-color-accent-low: color-mix(in srgb, var(--ui-accent) 20%, transparent);
+  --sl-color-accent-high: var(--ui-accent);
+}
+
+/* Bloco de demonstração ao vivo acima dos exemplos de código. */
+.ui-demo {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 0.75rem;
+  padding: 1.75rem;
+  margin-block: 1rem;
+  border: 1px solid var(--ui-border);
+  border-radius: var(--ui-radius-lg);
+  background: var(--ui-page-gradient);
+}
