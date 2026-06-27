@@ -106,6 +106,11 @@ export { Badge, badgeVariants, type BadgeProps } from "./components/badge/badge"
 export { Avatar, AvatarImage, AvatarFallback } from "./components/avatar/avatar";
 export { Spinner, type SpinnerProps } from "./components/spinner/spinner";
 export { Skeleton } from "./components/skeleton/skeleton";
+export { Progress, type ProgressProps } from "./components/progress/progress";
+export {
+  LoadingOverlay,
+  type LoadingOverlayProps,
+} from "./components/loading-overlay/loading-overlay";
 export { ToastProvider, useToast, type ToastData } from "./components/toast/toast";
 
 // Disclosure / navegação

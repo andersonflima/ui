@@ -1,5 +1,6 @@
 import * as React from "react";
 import { Slot } from "@radix-ui/react-slot";
+import { Loader2 } from "lucide-react";
 import { cva, type VariantProps } from "class-variance-authority";
 import { cn } from "@/lib/cn";
 
@@ -39,13 +40,35 @@ export interface ButtonProps
     VariantProps<typeof buttonVariants> {
   /** Renderiza o filho como elemento raiz (ex.: um <a>), herdando estilos. */
   asChild?: boolean;
+  /** Exibe um spinner e desabilita o botão durante uma ação assíncrona. */
+  loading?: boolean;
 }
 
 export const Button = React.forwardRef<HTMLButtonElement, ButtonProps>(
-  ({ className, variant, size, asChild = false, ...props }, ref) => {
+  (
+    { className, variant, size, asChild = false, loading = false, disabled, children, ...props },
+    ref,
+  ) => {
     const Comp = asChild ? Slot : "button";
+
     return (
-      <Comp className={cn(buttonVariants({ variant, size }), className)} ref={ref} {...props} />
+      <Comp
+        className={cn(buttonVariants({ variant, size }), className)}
+        ref={ref}
+        disabled={asChild ? undefined : disabled || loading}
+        aria-busy={loading || undefined}
+        data-loading={loading || undefined}
+        {...props}
+      >
+        {asChild ? (
+          children
+        ) : (
+          <>
+            {loading ? <Loader2 className="animate-spin" aria-hidden /> : null}
+            {children}
+          </>
+        )}
+      </Comp>
     );
   },
 );
