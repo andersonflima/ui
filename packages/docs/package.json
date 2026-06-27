@@ -1,0 +1,25 @@
+{
+  "name": "@andespindola/ui-docs",
+  "version": "0.1.0",
+  "private": true,
+  "description": "Storybook (catálogo visual) dos Web Components do design system.",
+  "type": "module",
+  "scripts": {
+    "storybook": "storybook dev -p 6007",
+    "build-storybook": "storybook build -o storybook-static",
+    "chromatic": "chromatic --build-script-name=build-storybook --exit-zero-on-changes"
+  },
+  "dependencies": {
+    "@andespindola/ui-core": "0.1.0"
+  },
+  "devDependencies": {
+    "@storybook/addon-a11y": "^8.6.14",
+    "@storybook/addon-essentials": "^8.6.14",
+    "@storybook/addon-themes": "^8.6.14",
+    "@storybook/web-components-vite": "^8.6.14",
+    "chromatic": "^17.7.2",
+    "lit": "^3.2.1",
+    "storybook": "^8.6.14",
+    "vite": "^6.0.7"
+  }
+}
