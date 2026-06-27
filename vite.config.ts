@@ -42,6 +42,8 @@ export default defineConfig({
       external: (id: string) =>
         !id.startsWith(".") && !id.startsWith("/") && !id.startsWith("@/"),
       output: {
+        // Marca o bundle como Client Component (compatibilidade com Next.js App Router).
+        banner: '"use client";',
         assetFileNames: "style.css",
       },
     },
