@@ -1,0 +1,79 @@
+:host {
+  display: block;
+}
+
+.dropzone {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 0.5rem;
+  width: 100%;
+  padding: 1.5rem;
+  border: 2px dashed var(--ui-border-strong);
+  border-radius: var(--ui-radius-lg);
+  background: transparent;
+  font-family: var(--ui-font-sans);
+  cursor: pointer;
+  transition: background var(--ui-duration) var(--ui-ease),
+    border-color var(--ui-duration) var(--ui-ease);
+}
+
+.dropzone:hover,
+.dropzone.dragging {
+  background: var(--ui-chip);
+}
+
+.dropzone:focus-visible {
+  outline: none;
+  box-shadow: 0 0 0 2px var(--ui-ring);
+}
+
+.icon {
+  color: var(--ui-text-soft);
+}
+
+.label {
+  font-size: 0.875rem;
+  color: var(--ui-text-muted);
+}
+
+.hint {
+  font-size: 0.75rem;
+  color: var(--ui-text-faint);
+}
+
+.files {
+  list-style: none;
+  margin: 0.75rem 0 0;
+  padding: 0;
+  display: flex;
+  flex-direction: column;
+  gap: 0.375rem;
+}
+
+.file {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 0.75rem;
+  padding: 0.5rem 0.75rem;
+  border: 1px solid var(--ui-border);
+  border-radius: var(--ui-radius);
+  background: var(--ui-panel);
+  font-family: var(--ui-font-sans);
+}
+
+.file-name {
+  font-size: 0.875rem;
+  color: var(--ui-foreground);
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+
+.file-size {
+  flex-shrink: 0;
+  font-size: 0.75rem;
+  color: var(--ui-text-muted);
+}
