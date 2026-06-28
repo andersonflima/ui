@@ -1,9 +1,10 @@
 :host {
-  display: inline-block;
+  display: inline-flex;
+  vertical-align: middle;
 }
 
 :host([full]) {
-  display: block;
+  display: flex;
   width: 100%;
 }
 
