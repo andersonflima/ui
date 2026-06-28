@@ -21,3 +21,10 @@
   border-radius: var(--ui-radius-lg);
   background: var(--ui-page-gradient);
 }
+
+/* O Starlight aplica margin-top a elementos de conteúdo; zerar dentro da demo
+   para não quebrar o alinhamento vertical (align-items: center) de itens com
+   alturas diferentes. O espaçamento já vem do `gap`. */
+.ui-demo > * {
+  margin: 0 !important;
+}
