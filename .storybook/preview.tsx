@@ -1,3 +1,4 @@
+// eslint-disable-next-line @typescript-eslint/triple-slash-reference -- tipos do Vite (import.meta.env/CSS) para o preview do Storybook
 /// <reference path="../src/vite-env.d.ts" />
 import type { Preview } from "@storybook/react";
 import { withThemeByClassName } from "@storybook/addon-themes";

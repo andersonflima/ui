@@ -4,6 +4,18 @@
   "description": "Wrappers Angular para os Web Components do design system @andespindola/ui-core.",
   "license": "MIT",
   "author": "Anderson Espindola <andersonfaustinolima@gmail.com>",
+  "homepage": "https://github.com/andersonflima/ui/tree/main/packages/angular#readme",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/andersonflima/ui.git",
+    "directory": "packages/angular"
+  },
+  "bugs": {
+    "url": "https://github.com/andersonflima/ui/issues"
+  },
+  "engines": {
+    "node": ">=18"
+  },
   "scripts": {
     "build": "ng-packagr -p ng-package.json -c tsconfig.lib.json"
   },

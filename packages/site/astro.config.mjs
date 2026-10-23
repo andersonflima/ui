@@ -13,9 +13,9 @@ export default defineConfig({
       components: {
         Head: "./src/components/Head.astro",
       },
-      social: {
-        github: "https://github.com/andersonflima/ui",
-      },
+      social: [
+        { icon: "github", label: "GitHub", href: "https://github.com/andersonflima/ui" },
+      ],
       sidebar: [
         {
           label: "Começar",
@@ -26,7 +26,7 @@ export default defineConfig({
         },
         {
           label: "Componentes",
-          autogenerate: { directory: "componentes" },
+          items: [{ autogenerate: { directory: "componentes" } }],
         },
       ],
     }),

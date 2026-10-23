@@ -8,19 +8,19 @@ type Story = StoryObj;
 
 export const Default: Story = {
   render: () => html`
-    <ui-button variant="solid" @click=${() => (document.getElementById("dlg-1") as any)?.show()}>
+    <ui-button variant="solid" @click=${() => document.querySelector<HTMLUiDialogElement>("#dlg-1")?.show()}>
       Abrir diálogo
     </ui-button>
     <ui-dialog id="dlg-1">
       <h2 slot="title">Confirmar ação</h2>
       <p slot="description">Esta ação não pode ser desfeita. Deseja continuar?</p>
       <div style="margin-top:1rem;display:flex;gap:.5rem;justify-content:flex-end">
-        <ui-button @click=${() => (document.getElementById("dlg-1") as any)?.close()}>
+        <ui-button @click=${() => document.querySelector<HTMLUiDialogElement>("#dlg-1")?.close()}>
           Cancelar
         </ui-button>
         <ui-button
           variant="solid"
-          @click=${() => (document.getElementById("dlg-1") as any)?.close()}
+          @click=${() => document.querySelector<HTMLUiDialogElement>("#dlg-1")?.close()}
         >
           Confirmar
         </ui-button>

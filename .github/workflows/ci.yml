@@ -1,0 +1,54 @@
+name: CI
+
+on:
+  pull_request:
+  push:
+    branches: [develop, main]
+
+permissions:
+  contents: read
+
+concurrency:
+  group: ci-${{ github.ref }}
+  cancel-in-progress: true
+
+jobs:
+  checks:
+    name: lint, typecheck, testes e build
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version: 22
+          # Astro 7 exige Node >= 22.23.4; o cache do runner pode estar atrás.
+          check-latest: true
+          cache: npm
+      - run: npm ci
+      - name: Lint
+        run: npm run lint
+      - name: Typecheck (pacote React legado)
+        run: npm run typecheck
+      # O build do core gera os wrappers de packages/react/src e packages/angular/src,
+      # usados pelos passos seguintes.
+      - name: Build @andespindola/ui-core
+        run: npm run build -w @andespindola/ui-core
+      - name: Testes de spec dos Web Components (Stencil)
+        run: npm test -w @andespindola/ui-core
+      - name: Testes Vitest (pacote legado + wrappers React)
+        run: npm run test:run
+      - name: Build @andespindola/ui-react
+        run: npm run build -w @andespindola/ui-react
+      - name: Build @andespindola/ui-angular
+        run: npm run build -w @andespindola/ui-angular
+      - name: Build @andespindola/ui (legado)
+        run: npm run build
+      - name: Build do site de documentação
+        run: npm run build -w @andespindola/ui-site
+      - name: Conteúdo dos pacotes publicáveis
+        run: |
+          npm pack --dry-run -w @andespindola/ui-core > /dev/null
+          npm pack --dry-run -w @andespindola/ui-react > /dev/null
+          npm pack --dry-run ./packages/angular/dist > /dev/null
+      - name: npm audit (dependências de produção)
+        run: npm audit --omit=dev --audit-level=high

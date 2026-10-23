@@ -17,7 +17,7 @@ const items = [
 
 export const Default: Story = {
   render: () => html`
-    <ui-button @click=${() => (document.getElementById("cmd1") as any)?.show()}>
+    <ui-button @click=${() => document.querySelector<HTMLUiCommandElement>("#cmd1")?.show()}>
       Abrir (⌘K)
     </ui-button>
     <ui-command id="cmd1" .items=${items}></ui-command>

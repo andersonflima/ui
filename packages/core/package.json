@@ -4,6 +4,18 @@
   "description": "Web Components (design system) com a identidade visual do portfólio andersonespindola.com — base agnóstica de framework para React, Angular e qualquer app.",
   "license": "MIT",
   "author": "Anderson Espindola <andersonfaustinolima@gmail.com>",
+  "homepage": "https://github.com/andersonflima/ui/tree/main/packages/core#readme",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/andersonflima/ui.git",
+    "directory": "packages/core"
+  },
+  "bugs": {
+    "url": "https://github.com/andersonflima/ui/issues"
+  },
+  "engines": {
+    "node": ">=18"
+  },
   "type": "module",
   "main": "dist/index.cjs.js",
   "module": "dist/index.js",
@@ -19,6 +31,10 @@
     },
     "./styles.css": "./dist/uikit/uikit.css",
     "./dist/uikit/uikit.css": "./dist/uikit/uikit.css",
+    "./dist/components": {
+      "types": "./custom-elements.d.ts",
+      "import": "./dist/components/index.js"
+    },
     "./dist/components/*": "./dist/components/*",
     "./loader": {
       "types": "./loader/index.d.ts",
@@ -32,7 +48,8 @@
   },
   "files": [
     "dist",
-    "loader"
+    "loader",
+    "custom-elements.d.ts"
   ],
   "publishConfig": {
     "access": "public"
@@ -48,6 +65,9 @@
   },
   "devDependencies": {
     "@stencil/angular-output-target": "^0.10.1",
-    "@stencil/react-output-target": "^0.8.1"
+    "@stencil/react-output-target": "^1.6.5",
+    "@types/jest": "^29.5.14",
+    "jest": "^29.7.0",
+    "jest-cli": "^29.7.0"
   }
 }
