@@ -9,7 +9,6 @@ packages/core/loader
 packages/core/www
 packages/core/src/components.d.ts
 packages/react/src/components.ts
-packages/react/src/index.ts
 packages/angular/src/lib/stencil-generated/
 *.tgz
 .DS_Store
