@@ -1,0 +1,64 @@
+name: Publish (cross-framework)
+
+# Publica @andespindola/ui-core, @andespindola/ui-react e @andespindola/ui-angular
+# no npm quando uma tag `cross-framework-vX.Y.Z` é enviada. Usa trusted publishing
+# (OIDC) do npm, então não há NPM_TOKEN: cada pacote precisa ter este repositório e
+# este workflow (publish.yml) cadastrados como trusted publisher no npmjs.com.
+# A proveniência (provenance) é gerada automaticamente pelo trusted publishing.
+
+on:
+  push:
+    tags: ["cross-framework-v*"]
+
+permissions:
+  contents: read
+
+concurrency:
+  group: publish-${{ github.ref }}
+  cancel-in-progress: false
+
+jobs:
+  publish:
+    runs-on: ubuntu-latest
+    permissions:
+      contents: read
+      id-token: write
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version: 22
+          cache: npm
+          registry-url: https://registry.npmjs.org
+      # Trusted publishing exige npm >= 11.5.1.
+      - run: npm install -g npm@^11.5.1
+      - run: npm ci
+      - name: Confere a versão da tag com os pacotes
+        run: |
+          tag="${GITHUB_REF_NAME#cross-framework-v}"
+          for dir in core react angular; do
+            version="$(node -p "require('./packages/$dir/package.json').version")"
+            if [ "$version" != "$tag" ]; then
+              echo "::error::packages/$dir está em $version, mas a tag é $tag"
+              exit 1
+            fi
+          done
+      - run: npm run build -w @andespindola/ui-core
+      - run: npm test -w @andespindola/ui-core
+      - run: npm run test:run
+      - run: npm run build -w @andespindola/ui-react
+      - run: npm run build -w @andespindola/ui-angular
+      - name: Publica no npm (ignora versões já publicadas)
+        run: |
+          publish() {
+            name="$1"; target="$2"
+            version="$(node -p "require('./$target/package.json').version")"
+            if npm view "$name@$version" version > /dev/null 2>&1; then
+              echo "$name@$version já está no npm, pulando."
+            else
+              npm publish "./$target" --access public
+            fi
+          }
+          publish @andespindola/ui-core packages/core
+          publish @andespindola/ui-react packages/react
+          publish @andespindola/ui-angular packages/angular/dist
