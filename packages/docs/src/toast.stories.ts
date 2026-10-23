@@ -12,7 +12,7 @@ export const Default: Story = {
     <ui-button
       variant="solid"
       @click=${() =>
-        (document.getElementById("tst-1") as any)?.toast({
+        document.querySelector<HTMLUiToasterElement>("#tst-1")?.toast({
           heading: "Salvo",
           description: "Tudo certo.",
           variant: "success",
@@ -30,7 +30,7 @@ export const Variantes: Story = {
       <ui-button
         variant="solid"
         @click=${() =>
-          (document.getElementById("tst-2") as any)?.toast({
+          document.querySelector<HTMLUiToasterElement>("#tst-2")?.toast({
             heading: "Salvo",
             description: "Tudo certo.",
             variant: "success",
@@ -41,7 +41,7 @@ export const Variantes: Story = {
       <ui-button
         variant="destructive"
         @click=${() =>
-          (document.getElementById("tst-2") as any)?.toast({
+          document.querySelector<HTMLUiToasterElement>("#tst-2")?.toast({
             heading: "Erro",
             description: "Algo deu errado.",
             variant: "danger",
