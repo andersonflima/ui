@@ -4,6 +4,18 @@
   "description": "Wrappers React (e Next.js) para os Web Components do design system @andespindola/ui-core.",
   "license": "MIT",
   "author": "Anderson Espindola <andersonfaustinolima@gmail.com>",
+  "homepage": "https://github.com/andersonflima/ui/tree/main/packages/react#readme",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/andersonflima/ui.git",
+    "directory": "packages/react"
+  },
+  "bugs": {
+    "url": "https://github.com/andersonflima/ui/issues"
+  },
+  "engines": {
+    "node": ">=18"
+  },
   "type": "module",
   "main": "dist/index.js",
   "module": "dist/index.js",
@@ -24,7 +36,7 @@
   },
   "dependencies": {
     "@andespindola/ui-core": "0.4.1",
-    "@stencil/react-output-target": "^0.8.1"
+    "@stencil/react-output-target": "^1.6.5"
   },
   "devDependencies": {
     "@types/react": "^18.3.18",
