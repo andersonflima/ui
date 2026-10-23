@@ -28,6 +28,8 @@ jobs:
       - uses: actions/setup-node@v4
         with:
           node-version: 22
+          # Astro 7 exige Node >= 22.23.4; o cache do runner pode estar atrás.
+          check-latest: true
           cache: npm
           registry-url: https://registry.npmjs.org
       # Trusted publishing exige npm >= 11.5.1.
